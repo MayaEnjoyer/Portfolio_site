@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maksym — Contacts</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="page-contacts">
+<header class="header">
+    <div class="container">
+        <nav class="nav site-nav" aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./articles.html">Articles</a>
+            <a href="./article.html">Article</a>
+            <a href="./gallery.html">Gallery</a>
+            <a href="./catalog.html">Catalog</a>
+            <a href="./anchors.html">Anchors</a>
+            <a href="./contacts.html" aria-current="page">Contacts</a>
+            <a href="./register.html">Register</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="form-panel" aria-labelledby="c-title">
+        <h1 id="c-title">Contact form</h1>
+
+        <form class="form" action="#" method="post" novalidate>
+            <div class="form-row">
+                <label for="c-name">Full name</label>
+                <input id="c-name" name="name" type="text" required placeholder="Maksym Hubar" data-autocap>
+            </div>
+
+            <!-- Email -->
+            <div class="form-row">
+                <label for="c-email">Email</label>
+                <input id="c-email" name="email" type="email" required placeholder="youremail@example.com">
+            </div>
+
+            <!-- Topic -->
+            <div class="form-row">
+                <label for="c-topic">Topic</label>
+                <select id="c-topic" name="topic" required>
+                    <option value="">Choose a topic…</option>
+                    <option>Web project</option>
+                    <option>AI / ML</option>
+                    <option>Talking about Mai Sakurajima</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <!-- Message -->
+            <div class="form-row">
+                <label for="c-msg">Message</label>
+                <textarea id="c-msg" name="message" rows="6" required placeholder="What do you need?"></textarea>
+            </div>
+
+            <fieldset class="form-row inline">
+                <legend>Preferred contact</legend>
+                <span class="choice">
+            <input type="radio" id="contact-email" name="contact" value="email" required>
+            <label for="contact-email">Email</label>
+          </span>
+                <span class="choice">
+            <input type="radio" id="contact-telegram" name="contact" value="telegram">
+            <label for="contact-telegram">Telegram</label>
+          </span>
+            </fieldset>
+
+            <div class="form-row inline">
+          <span class="choice">
+            <input type="checkbox" id="c-consent" name="consent" required>
+            <label for="c-consent">I agree to be contacted back</label>
+          </span>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-row">
+                <button class="btn" type="submit">Send</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<!--автокапіталі.. ПІБ -->
+<script>
+    function titleCase(v){
+        return v.split(' ').filter(Boolean)
+            .map(w => w[0] ? w[0].toUpperCase() + w.slice(1).toLowerCase() : '')
+            .join(' ');
+    }
+    document.querySelectorAll('[data-autocap]').forEach(el=>{
+        el.style.textTransform = 'capitalize';
+        el.addEventListener('blur', ()=>{ el.value = titleCase(el.value); });
+    });
+</script>
+</body>
+</html>

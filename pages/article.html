@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maksym — Article</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="page-article">
+<header class="header">
+    <div class="container">
+        <nav class="nav site-nav" aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./articles.html">Articles</a>
+            <a href="./article.html" aria-current="page">Article</a>
+            <a href="./gallery.html">Gallery</a>
+            <a href="./catalog.html">Catalog</a>
+            <a href="./anchors.html">Anchors</a>
+            <a href="./contacts.html">Contacts</a>
+            <a href="./register.html">Register</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <article class="post wrap">
+        <header class="post-header">
+            <h1 class="post-title" id="post-title">Article title</h1>
+            <p class="post-meta" id="post-meta">Reading time • Category</p>
+
+            <div class="post-actions">
+                <a class="back-btn" href="./articles.html">← Back to Articles</a>
+            </div>
+        </header>
+
+        <section class="article-body" id="post-body">
+        </section>
+    </article>
+</main>
+<script>
+    const POSTS = {
+        "mai-and-sakuta": {
+            title: "Rascal Sees Her: The Mai Sakurajima Arc, Beat by Beat",
+            meta: "Reading time: 8 min • Category: Bunny Girl Senpai",
+            paragraphs: [
+                "In the library’s hush, Sakuta sees a girl in a bunny suit - and realizes no one else does. She is Mai Sakurajima, a famous actress who stepped away from the spotlight and, in the show’s terms, has slipped from the world’s field of observation. Her invisibility is a physical metaphor for an inner state: the less attention she receives, the weaker her coupling to others’ perception becomes.",
+                "Together they probe the anomaly’s boundaries: different places, different people, different times. The pattern holds - strangers don’t notice her, even when Mai dresses provocatively. Close acquaintances resist longer, but they, too, drift if contact fades. The core idea is an observer effect: other people’s attention collapses the character’s state into visibility.",
+                "Mai’s cause isn’t magic, it’s a critique of fame. Adults and managers control her image so tightly that she wishes to disappear. When recognition devours the person, the psyche refuses the gaze, and the world stops answering back. The body follows the narrative: reality ceases to reciprocate.",
+                "Sakuta is the counterweight to forgetting. His main action isn’t technical - it’s ethical: “I see you.” He persistently confirms her existence with name, care, and presence. In the show, that’s not just romance; it’s a method: a stable observer holds a person’s state inside reality.",
+                "The crisis deepens: even in familiar spaces Mai drops out of others’ frames. The story pushes toward a choice - merge with the shadow or risk public exposure to break the spell.",
+                "The resolution is the rooftop confession. Sakuta raises the stakes on purpose: a loud, shamelessly sincere declaration that forces everyone to look at the same point. Mass attention behaves like a physics experiment - the superposed state collapses, and Mai re-enters the world’s observation.",
+                "Afterward they negotiate boundaries: persona (actress, symbol, industry expectations) versus person (a girl who deserves protection). Mai regains subjecthood in her work; Sakuta accepts the ongoing task of the one who remembers and calls her by name, especially when the world grows indifferent again.",
+                "Theme, distilled: we are responsible for our gaze. We either truly see a person or help erase them. The arc argues that closeness is not an accident but the regular work of attentive observation."
+            ]
+        },
+
+        "puberty-syndrome": {
+            title: "Puberty Syndrome Explained: The Fictional Science Behind Teen Pain",
+            meta: "Reading time: 9 min • Category: Analysis",
+            paragraphs: [
+                "In the series, “Puberty Syndrome” is a fictional yet consistent set of anomalies that materialize teenage psychological distress. It’s not medicine and not mysticism - it’s an artistic framework that borrows the language of physics: observer effects, superposition, time loops, and state exchange.",
+                "The rules are simple: (1) intense emotional tension in a teen produces an anomaly; (2) attention - “observation” - can change or fix the state; (3) resolution comes from an honest encounter with the cause, not from a technical trick.",
+                "Mai Sakurajima - invisibility via observer effect. A lack of safe attention plus coercive publicity produces the desire to vanish. When she is truly and publicly seen, the state collapses back to normal.",
+                "Tomoe Koga - the time loop. Fear of social fallout and the wish to rewind awkward reality reset the day. The loop breaks when she admits her feelings and stops living by someone else’s script.",
+                "Rio Futaba - self-duplication. A split between self-contempt and the craving for recognition literally divides her into two versions: one isolates, the other seeks attention destructively. Integration comes through acceptance without self-humiliation.",
+                "Nodoka Toyohama - body swap with Mai. Pressure from comparison and envy of the “perfect” sister swap identities. The fix is not to become Mai, but to own her path and abilities.",
+                "Kaede Azusagawa - trauma scars and amnesia as a response to bullying. Online abuse yields somatic symptoms and a protective persona. Healing is slow: support, journaling, small steps, and a safe environment.",
+                "Shoko Makinohara - the hardest case: temporal splits and a Schrödinger-like tangle around a choice/act of sacrifice that rewrites futures. The show pushes the metaphor to its limit: love and responsibility as the mechanism that selects one branch of reality.",
+                "Bottom line: the “syndrome” is a language for how the psyche protects and cries out. Technically it looks like quantum tricks; what heals it is ethics - truth, acknowledgement, and loving observation. When we look closely and speak plainly, reality stops breaking."
+            ]
+        }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const slug = (params.get("slug") || "mai-and-sakuta").toLowerCase();
+    const post = POSTS[slug] || POSTS["mai-and-sakuta"];
+
+    document.getElementById("post-title").textContent = post.title;
+    document.getElementById("post-meta").textContent = post.meta;
+
+    const body = document.getElementById("post-body");
+    post.paragraphs.forEach(t => {
+        const p = document.createElement("p");
+        p.textContent = t;
+        body.appendChild(p);
+    });
+</script>
+</body>
+</html>
